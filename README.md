@@ -47,7 +47,7 @@ This project provides source code and methods to build a touch controller for Wi
    #3: COM7
    Please select a number >> 3
    ````
-4. While the key is touched, key press events of {Q,W,E,R,T,U,I,O} will be published on Windows. For example, you can see the characters being typed into a text editor. You can also play games with this controller by changing the key bindings of the game application.
+4. While a panel is touched, key press events of {Q,W,E,R,T,U,I,O} will be published on Windows. For example, you can see the characters being typed into a text editor. You can also play games with this controller by changing the key bindings of the game application.
 5. Pressing enter in the command prompt will exit the `serial_keyboard_converter.exe`.
 
 ## Settings
@@ -57,7 +57,7 @@ This project provides source code and methods to build a touch controller for Wi
 #### THRESHOLD_COUNT_UNTOUCH
 * The reconfirmation count to transition to non-touch state.
   * Increasing this value will stabilize the detection of continuous touches.
-  * Decreasing this value will reduce the delay in detecting non-touch status. (However, this is not important for most applications).
+  * Decreasing this value will reduce the delay in detecting non-touch status (however, this is not important for most applications).
 
 #### CHARGE_TIME_MICRO_SECOND
 * The charging time for finger capacitors.
