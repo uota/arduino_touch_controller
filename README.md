@@ -1,5 +1,5 @@
 # Arduino touch controller for Windows
-This project provides source code and methods to build a touch controller for Windows using  Arduino Nano. This controller allows users to operate Windows applications using touch panels. The architecture of the controller is shown in the figure below.
+This project provides source code and methods to build a touch controller for Windows using Arduino Nano. This controller allows users to operate Windows applications using touch panels. The architecture of the controller is shown in the figure below.
 
 ![archtecture](https://user-images.githubusercontent.com/4375451/236595483-032ebebf-071c-4ff7-b14a-1e42987d9b72.png) 
 
@@ -55,14 +55,14 @@ This project provides source code and methods to build a touch controller for Wi
 * If the controller does not work well, you need to adjust the variables in the firmware (`arduino_touch_controller.ino`).
 
 #### THRESHOLD_COUNT_UNTOUCH
-* The time required to determine non-touch status.
-  * Increasing this value will stabilize the holding of continuous touches.
-  * Decreasing this value reduces the detection delay of non-touch states. (However, this is not important for most applications).
+* The reconfirmation count to transition to non-touch state.
+  * Increasing this value will stabilize the detection of continuous touches.
+  * Decreasing this value will reduce the delay in detecting non-touch status. (However, this is not important for most applications).
 
 #### CHARGE_TIME_MICRO_SECOND
 * The charging time for finger capacitors.
-  * Increasing this value will become more robust against noise, but it will be harder to detect touches.
-  * Decreasing this value will make it easier to detect touches, but it also makes it more susceptible to noise.
+  * Increasing this value will make it easier to detect touches, but it increases over-detection.
+  * Decreasing this value will prevents over-detection, but it makes it harder to detect touches.
 
 ### Key bindings
-* Key bindings can be modified by changing the array (KEY_ASSIGN_LIST) in the serial-to-keyboard event converter (`serial_keyevent_converter.cs`).
+* Key bindings can be changed by editing the `KEY_ASSIGN_LIST` array in `serial_keyevent_converter.cs`.
