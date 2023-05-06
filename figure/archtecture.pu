@@ -1,0 +1,28 @@
+\documentclass[tikz, border=20pt]{standalone}
+\usepackage{tikz}
+\usepackage{bbding} % use for draw hand
+\begin{document}
+\begin{tikzpicture}
+\usetikzlibrary {fit}
+
+\node[draw, label={[name=lab-pc]Windows PC}] (inner-pc) at (0,4.5) {serial-keyevent converter};
+\node[draw, fit=(lab-pc)(inner-pc)] (outer-pc) {};
+
+\node[draw, label={[name=lab-arduino]Arduino Nano (ATMega328)}] (inner-arduino) at (0,2) {firmware};
+\node[draw, fit=(lab-arduino)(inner-arduino)] (outer-arduino) {};
+
+\draw (outer-pc) -- node[right] {serial communication} (outer-arduino);
+
+\foreach \i in {-4,...,3} {
+    \node (panel\i) [draw, minimum height=30px, minimum width=15px] at (\i * 0.6 + 0.3, 0) {};
+    \draw (outer-arduino) --(node cs:name=panel\i, anchor=north);
+}
+
+\node at (3.5,0) {touch panels};
+\end{tikzpicture}
+\end{document}
+
+% memo: How to convert to png
+% 1. Get a pdf using overleaf.com
+% 2. Exec the following command:
+%  convert -density 400 -background white -alpha off -colorspace RGB -resize 40% fig.pdf output.png
