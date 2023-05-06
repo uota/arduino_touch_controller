@@ -1,5 +1,6 @@
 # Arduino touch controller for Windows
 This project provides source code and methods to build a touch controller for Windows using  Arduino Nano. This controller allows users to operate Windows applications using touch panels. The architecture of the controller is shown in the figure below.
+
 ![archtecture](https://user-images.githubusercontent.com/4375451/236595483-032ebebf-071c-4ff7-b14a-1e42987d9b72.png) 
 
 8 metal touch panels are connected to the Arduino. When a user touches a panel, the firmware on the Arduino detects the touch state and sends it to the Windows PC via serial communication. The serial-keyevent converter on the Windows PC receives the touch state and generates a virtual keyboard press event. Finally, Windows applications (e.g., game application) receives the press event.
